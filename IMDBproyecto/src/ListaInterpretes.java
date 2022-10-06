@@ -7,6 +7,12 @@ public class ListaInterpretes {
         this.listaInterpretes = listaInterpretes;
     }
 
+    //Getters-------------------------------------
+    public int getNumDeInterpretes(){
+        return listaInterpretes.size();
+    }
+    //--------------------------------------------
+
     /**
      * Añade un intérprete a la lista
      * @param inter Intérprete a añadir
@@ -27,5 +33,13 @@ public class ListaInterpretes {
             }
         }
         return null;
+    }
+
+    public String toString(){
+        String returnString = "";
+        for (int i = 0; i < listaInterpretes.size(); i++){
+            returnString = returnString + "\n" + listaInterpretes.get(i);
+        }
+        return returnString;
     }
 }

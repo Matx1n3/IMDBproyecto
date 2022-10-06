@@ -25,6 +25,7 @@ public class Interprete {
         while (i < listaPeliculas.cantidadDePeliculas()){
             pRating = pRating + listaPeliculas.getPelicula(i).getRating() * listaPeliculas.getPelicula(i).getNumvotos();
             nVotos = nVotos + listaPeliculas.getPelicula(i).getNumvotos();
+            i++;
         }
         rating = pRating/nVotos;
     }
@@ -36,5 +37,9 @@ public class Interprete {
      */
     public void anadirPelicula(Pelicula pel){
         listaPeliculas.añadirPelicula(pel);
+    }
+
+    public String toString(){
+        return "Nombre interprete: " + nombre;
     }
 }

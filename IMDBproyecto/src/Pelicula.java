@@ -46,4 +46,8 @@ public class Pelicula {
         rating = (rating * numvotos + voto) / (numvotos + 1);
         numvotos++;
     }
+
+    public String toString(){
+        return "Titulo pelicula: " +  titulo + ", numero de interpretes: " + listaInterpretes.getNumDeInterpretes();
+    }
 }
