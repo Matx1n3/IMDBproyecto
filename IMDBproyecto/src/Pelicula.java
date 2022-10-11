@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Pelicula {
     private String titulo;
     private int año;
@@ -5,11 +7,13 @@ public class Pelicula {
     private int numvotos;
     private ListaInterpretes listaInterpretes;
 
-    public Pelicula(String titulo_in, int año_in, int rating_in, int numvotos_in){
+    public Pelicula(String titulo_in, int año_in, float rating_in, int numvotos_in){
         titulo = titulo_in;
         año = año_in;
         rating = rating_in;
         numvotos = numvotos_in;
+
+        listaInterpretes = new ListaInterpretes(new ArrayList<Interprete>());
     }
 
     //Getters----------------------------
@@ -26,6 +30,12 @@ public class Pelicula {
     }
     public int getNumvotos(){
         return numvotos;
+    }
+    //-----------------------------------
+
+    //Setters----------------------------
+    public void setRating(float newRating){
+        rating = newRating;
     }
     //-----------------------------------
 
@@ -49,5 +59,11 @@ public class Pelicula {
 
     public String toString(){
         return "Titulo pelicula: " +  titulo + ", numero de interpretes: " + listaInterpretes.getNumDeInterpretes();
+    }
+
+    public void actualizarRatingsInterpretes(){
+        for (int i = 0; i < listaInterpretes.getNumDeInterpretes(); i++){
+            listaInterpretes.getInterprete(i).calcularRating();
+        }
     }
 }

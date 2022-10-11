@@ -11,6 +11,10 @@ public class ListaInterpretes {
     public int getNumDeInterpretes(){
         return listaInterpretes.size();
     }
+
+    public Interprete getInterprete(int i ){
+        return listaInterpretes.get(i);
+    }
     //--------------------------------------------
 
     /**

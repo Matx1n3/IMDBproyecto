@@ -23,6 +23,7 @@ public class ListaPeliculas {
      */
     public void añadirPelicula(Pelicula peli_in){
         listaPeliculas.add(peli_in);
+        //System.out.println("Pelicula a añadir: " + peli_in.getTitulo());
     }
 
     /**
@@ -30,12 +31,21 @@ public class ListaPeliculas {
      * @param titulo Título de la película a buscar
      * @return la Película (si está en la lista), null en caso contrario
      */
-    public Pelicula buscarPelicula(String titulo){
+    public Pelicula buscarPelicula(String titulo){  //Cambiar a busqueda bicotomica
         for (int i = 0; i < listaPeliculas.size(); i++) {
-            if (listaPeliculas.get(i).getTitulo() == titulo){
+            if (listaPeliculas.get(i).getTitulo().equals(titulo)){
+                //System.out.println("Film " + titulo + " has been found in the DB!");
                 return listaPeliculas.get(i);
             }
         }
         return null;
+    }
+
+    public String toString(){
+        String returnString = "";
+        for (int i = 0; i < listaPeliculas.size(); i++){
+            returnString = returnString + "\n" + listaPeliculas.get(i);
+        }
+        return returnString;
     }
 }

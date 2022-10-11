@@ -5,10 +5,12 @@ public class Interprete {
     private ListaPeliculas listaPeliculas;
     private float rating;
 
+    //Constructor-----------------------------
     public Interprete(String nombre_in, ListaPeliculas listaPeliculas_in){
         nombre = nombre_in;
         listaPeliculas = listaPeliculas_in;
     }
+    //-----------------------------------------
     //Getters----------------------------------
     public String getNombre() {
         return nombre;
@@ -40,6 +42,6 @@ public class Interprete {
     }
 
     public String toString(){
-        return "Nombre interprete: " + nombre;
+        return "Nombre interprete: " + nombre + ",\nTitulos de las peliculas en las que ha actuado: " + listaPeliculas;
     }
 }
