@@ -72,8 +72,9 @@ public class CatalogoIMDB {
                     System.out.println("Peli " + i + " = " + listaPelisActor.getPelicula(i).getTitulo());
                 }
                 listaInterpretes.anadirInterprete(new Interprete(lineaSeparada[0], listaPelisActor));
-                //System.out.println("Interprete " + listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1).getNombre() + " añadido");
-                //System.out.println("Con las pelis: " + listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1).toString());
+                for (int i = 0; i < listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1).getCantidadPeliculas(); i++){  //Actualizar listaInterpretes de las peliculas en las que el nuevo Interprete ha actuado
+                    listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1).getPelicula(i).anadirInterprete(listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1));
+                }
             }
             sc.close();
 

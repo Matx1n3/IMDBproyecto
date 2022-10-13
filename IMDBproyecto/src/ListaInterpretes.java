@@ -30,9 +30,9 @@ public class ListaInterpretes {
      * @param nombre Nombre del intérprete a buscar
      * @return el Interprete (si está en la lista), null en caso contrario
      */
-    public Interprete buscarInterprete(String nombre){
+    public Interprete buscarInterprete(String nombre){  //Hacer dicotomico
         for (int i = 0; i < listaInterpretes.size(); i++){
-            if (listaInterpretes.get(i).getNombre() == nombre){
+            if (listaInterpretes.get(i).getNombre().equals(nombre)){
                 return listaInterpretes.get(i);
             }
         }

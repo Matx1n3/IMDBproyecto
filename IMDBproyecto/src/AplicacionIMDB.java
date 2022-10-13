@@ -22,10 +22,10 @@ public class AplicacionIMDB {
         int opcion=-1;
 
         while(opcion!=0) {
-            System.out.println("Escoja una opci�n:");
-            System.out.println("1. Mostrar informaci�n de pel�cula");
-            System.out.println("2. Mostrar informaci�n de int�rprete");
-            System.out.println("3. A�adir voto a pel�cula");
+            System.out.println("Escoja una opcion:");
+            System.out.println("1. Mostrar informaci�n de pelicula");
+            System.out.println("2. Mostrar informaci�n de interprete");
+            System.out.println("3. Anadir voto a pelicula");
 
             System.out.println("0. Salir");
             opcion = Integer.parseInt(sc.nextLine());

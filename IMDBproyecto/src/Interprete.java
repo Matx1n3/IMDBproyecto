@@ -15,6 +15,14 @@ public class Interprete {
     public String getNombre() {
         return nombre;
     }
+
+    public int getCantidadPeliculas(){
+        return listaPeliculas.cantidadDePeliculas();
+    }
+
+    public Pelicula getPelicula(int i){
+        return listaPeliculas.getPelicula(i);
+    }
     //------------------------------------------
 
     /**
