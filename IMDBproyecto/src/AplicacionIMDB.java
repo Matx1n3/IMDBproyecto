@@ -1,5 +1,6 @@
 //package fase1;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class AplicacionIMDB {
@@ -9,10 +10,14 @@ public class AplicacionIMDB {
         //TO DO: ...
         CatalogoIMDB catalogo = new CatalogoIMDB();
         //TO DO: Cargar pel�culas
-        catalogo.cargarPeliculas("/home/matxin/WorkSpace/Uni/EDA/IMDBproyecto/IMDBproyecto/smallerfiles/films_tiny.txt");
+        catalogo.cargarPeliculas("/home/matxin/WorkSpace/Uni/2ndo/1er cuatri/EDA/IMDBproyecto/IMDBproyecto/smallerfiles/films_tiny.txt");
         //TO DO Cargar int�rpretes
-        catalogo.cargarInterpretes("/home/matxin/WorkSpace/Uni/EDA/IMDBproyecto/IMDBproyecto/smallerfiles/cast_tiny.txt");
-
+        try {
+            catalogo.cargarInterpretes("/home/matxin/WorkSpace/Uni/2ndo/1er cuatri/EDA/IMDBproyecto/IMDBproyecto/smallerfiles/cast_tiny.txt");
+        }
+        catch (FileNotFoundException e){
+            System.out.println("El fichero no ha sido encontrado");
+        }
         System.out.println("Printing lista de interpretes...");
         catalogo.printListaInterpretes();
 

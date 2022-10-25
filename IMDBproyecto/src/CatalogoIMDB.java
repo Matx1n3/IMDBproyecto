@@ -48,7 +48,7 @@ public class CatalogoIMDB {
      * POST: se han cargado los intérpretes y se han calculado sus ratings
      * @param nomF Nombre del fichero que contiene los intérpretes
      */
-    public void cargarInterpretes(String nomF){
+    public void cargarInterpretes(String nomF) throws FileNotFoundException {
         try {
             Scanner sc = new Scanner(new FileReader(nomF));
             String linea;
@@ -56,31 +56,18 @@ public class CatalogoIMDB {
                 linea = sc.nextLine();
                 String[] lineaSeparada = linea.split("->"); //lineaSeparada[0] = nombreInterprete; lineaSeparada[1] = String de pelis separadas por "||"
                 String[] pelisSeparadas = lineaSeparada[1].split("\\|\\|");
-                ListaPeliculas listaPelisActor = new ListaPeliculas(new ArrayList<Pelicula>());
+                listaInterpretes.anadirInterprete(new Interprete(lineaSeparada[0], new ListaPeliculas()));
                 for (int i = 0; i < pelisSeparadas.length; i++){
-                    //System.out.println(pelisSeparadas[i]);
-                    if (listaPeliculas.buscarPelicula(pelisSeparadas[i]) != null) {
-                        listaPelisActor.añadirPelicula(listaPeliculas.buscarPelicula(pelisSeparadas[i]));
-                        //System.out.println("Pelicula " + pelisSeparadas[i] + " encontrada y añadida al interprete " + lineaSeparada[0]);
+                    if (listaPeliculas.buscarPelicula(pelisSeparadas[i]) != null) { //If peli is in database
+                        listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1).anadirPelicula(listaPeliculas.buscarPelicula(pelisSeparadas[i]));  //Añadir peli a interprete
+                        listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1).getPelicula(i).anadirInterprete(listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1)); //Añadir interprete a peli
                     }
-                    else {
-                        //System.out.println("Pelicula " + pelisSeparadas[i] + " no encontrada, siguiente");
-                    }
-                }
-                System.out.println("Interprete: " + lineaSeparada[0]);
-                for (int i = 0; i < listaPelisActor.cantidadDePeliculas(); i++){
-                    System.out.println("Peli " + i + " = " + listaPelisActor.getPelicula(i).getTitulo());
-                }
-                listaInterpretes.anadirInterprete(new Interprete(lineaSeparada[0], listaPelisActor));
-                for (int i = 0; i < listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1).getCantidadPeliculas(); i++){  //Actualizar listaInterpretes de las peliculas en las que el nuevo Interprete ha actuado
-                    listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1).getPelicula(i).anadirInterprete(listaInterpretes.getInterprete(listaInterpretes.getNumDeInterpretes()-1));
                 }
             }
             sc.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("El fichero " + nomF + " no ha sido encontrado");
-            throw new RuntimeException(e);
+            throw e;
         }
     }
 

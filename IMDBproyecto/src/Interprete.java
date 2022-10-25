@@ -52,4 +52,16 @@ public class Interprete {
     public String toString(){
         return "Nombre interprete: " + nombre + ",\nTitulos de las peliculas en las que ha actuado: " + listaPeliculas;
     }
+
+    /**
+     *
+     * @param interprete_in
+     * @return
+     *     if s1 > s2, it returns positive number
+     *     if s1 < s2, it returns negative number
+     *     if s1 == s2, it returns 0
+     */
+    public int compareTo(Interprete interprete_in){
+        return nombre.compareTo(interprete_in.getNombre());
+    }
 }

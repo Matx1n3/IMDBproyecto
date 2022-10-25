@@ -66,4 +66,8 @@ public class Pelicula {
             listaInterpretes.getInterprete(i).calcularRating();
         }
     }
+
+    public int compareTo(Pelicula peli_in){
+        return titulo.compareTo(peli_in.titulo);
+    }
 }

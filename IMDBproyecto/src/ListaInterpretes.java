@@ -20,8 +20,19 @@ public class ListaInterpretes {
     /**
      * Añade un intérprete a la lista
      * @param inter Intérprete a añadir
+     *
+     *     if s1 > s2, it returns positive number
+     *     if s1 < s2, it returns negative number
+     *     if s1 == s2, it returns 0
      */
     public void anadirInterprete(Interprete inter){
+        /**
+        int i = 0;
+        while(i < listaInterpretes.size() && listaInterpretes.get(i).compareTo(inter) < 0){
+            i++;
+        }
+        listaInterpretes.add(i, inter);
+         **/
         listaInterpretes.add(inter);
     }
 
