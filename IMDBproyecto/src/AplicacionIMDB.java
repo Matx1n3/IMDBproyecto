@@ -11,6 +11,7 @@ public class AplicacionIMDB {
         CatalogoIMDB catalogo = new CatalogoIMDB();
         //TO DO: Cargar pel�culas
         catalogo.cargarPeliculas("/home/matxin/WorkSpace/Uni/2ndo/1er cuatri/EDA/IMDBproyecto/IMDBproyecto/smallerfiles/films_tiny.txt");
+            //catalogo.imprimirListaPeliculas();
         //TO DO Cargar int�rpretes
         try {
             catalogo.cargarInterpretes("/home/matxin/WorkSpace/Uni/2ndo/1er cuatri/EDA/IMDBproyecto/IMDBproyecto/smallerfiles/cast_tiny.txt");
@@ -18,8 +19,8 @@ public class AplicacionIMDB {
         catch (FileNotFoundException e){
             System.out.println("El fichero no ha sido encontrado");
         }
-        System.out.println("Printing lista de interpretes...");
-        catalogo.printListaInterpretes();
+            //System.out.println("Printing lista de interpretes...");
+            //catalogo.printListaInterpretes();
 
 
         //Men�

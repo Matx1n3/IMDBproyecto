@@ -32,8 +32,8 @@ public class CatalogoIMDB {
             while (sc.hasNext()){
                 linea = sc.nextLine();
                 String[] lineaSeparada = linea.split("\t");
-                Pelicula peliAnadir = new Pelicula(lineaSeparada[0], Integer.parseInt(lineaSeparada[1]), Float.parseFloat(lineaSeparada[2]), Integer.parseInt(lineaSeparada[3]));
-                listaPeliculas.añadirPelicula(peliAnadir);
+                listaPeliculas.añadirPelicula(new Pelicula(lineaSeparada[0], Integer.parseInt(lineaSeparada[1]), Float.parseFloat(lineaSeparada[2]), Integer.parseInt(lineaSeparada[3])));
+                //System.out.println(listaPeliculas.getPelicula(listaPeliculas.cantidadDePeliculas()-1));
             }
             sc.close();
         }
@@ -101,8 +101,9 @@ public class CatalogoIMDB {
     }
 
     public void imprimirListaPeliculas(){   //Solo para probar, ELIMINAR luego
+        System.out.println("Imprimiendo listaPeliculas, hay " + listaPeliculas.cantidadDePeliculas() + " pelis");
         for (int i = 0; i < listaPeliculas.cantidadDePeliculas(); i++){
-            System.out.println("Peli " + i + " =    " + listaPeliculas.getPelicula(i).getTitulo());
+            System.out.println("Peli " + i + " = " + listaPeliculas.getPelicula(i).getTitulo());
         }
     }
 

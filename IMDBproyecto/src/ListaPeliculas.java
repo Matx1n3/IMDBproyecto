@@ -40,17 +40,19 @@ public class ListaPeliculas {
      *      *     if s1 < s2, it returns negative number
      *      *     if s1 == s2, it returns 0
      */
-    public Pelicula buscarPelicula(String titulo){  //Revisar a busqueda bicotomica
+    public Pelicula buscarPelicula(String titulo){  //Revisar la busqueda bicotomica
         int from = 0;
         int to = listaPeliculas.size();
-        while (from > to) {
-            int comp = listaPeliculas.get(((to - from) / 2) + to).getTitulo().compareTo(titulo);
+        int midVal;
+        while (from < to) {
+            midVal = ((to - from) / 2) + from;
+            int comp = listaPeliculas.get(midVal).getTitulo().compareTo(titulo);
             if (comp > 0) {//Mirar a la izquierda
-                to = ((to - from) / 2) + to;
+                to = midVal;
             } else if (comp < 0) { //Mirar la derecha
-                from = ((to - from) / 2) + to;
+                from = midVal;
             } else {
-                return listaPeliculas.get(((to - from) / 2) + to);
+                return listaPeliculas.get(midVal);
             }
         }
         return null;
@@ -70,6 +72,14 @@ public class ListaPeliculas {
         String returnString = "";
         for (int i = 0; i < listaPeliculas.size(); i++){
             returnString = returnString + "\n" + listaPeliculas.get(i);
+        }
+        return returnString;
+    }
+
+    public String toStringTitles(){
+        String returnString = "";
+        for (int i = 0; i < listaPeliculas.size(); i++){
+            returnString = returnString + "\n" + listaPeliculas.get(i).getTitulo();
         }
         return returnString;
     }

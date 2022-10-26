@@ -50,7 +50,7 @@ public class Interprete {
     }
 
     public String toString(){
-        return "Nombre interprete: " + nombre + ",\nTitulos de las peliculas en las que ha actuado: " + listaPeliculas;
+        return "Nombre interprete: " + nombre + ",\nTitulos de las peliculas en las que ha actuado: " + listaPeliculas.toStringTitles();
     }
 
     /**
