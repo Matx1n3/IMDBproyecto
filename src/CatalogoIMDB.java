@@ -121,7 +121,7 @@ public class CatalogoIMDB {
      */
     public void anadirVoto(String titulo, float voto){
         Pelicula peli = listaPeliculas.buscarPelicula(titulo);
-        peli.setRating(((peli.getRating() * peli.getNumvotos())+1)/(peli.getNumvotos()+1));
+        peli.setRating(((peli.getRating() * peli.getNumvotos())+voto)/(peli.getNumvotos()+1));
         peli.actualizarRatingsInterpretes();
     }
 
